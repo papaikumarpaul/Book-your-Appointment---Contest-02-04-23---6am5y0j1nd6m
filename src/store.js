@@ -1,4 +1,4 @@
-import { createStore } from 'redux';
+import { createStore } from "redux";
 
 const initialState = {
   appointments: [],
@@ -6,13 +6,13 @@ const initialState = {
 
 function appointmentReducer(state = initialState, action) {
   switch (action.type) {
-    case 'ADD_APPOINTMENT':
-      return {};
+    case "ADD_APPOINTMENT":
+      return { appointments: [...state.appointments, action.payload] };
     default:
       return state;
   }
 }
 
-const store = createStore();
+const store = createStore(appointmentReducer);
 
 export default store;
